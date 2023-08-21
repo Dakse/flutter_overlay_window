@@ -73,6 +73,9 @@ public class FlutterOverlayWindowPlugin implements
                 result.error("PERMISSION", "overlay permission is not enabled", null);
                 return;
             }
+
+            if (OverlayService.isRunning) return;
+                
             Integer height = call.argument("height");
             Integer width = call.argument("width");
             String alignment = call.argument("alignment");
