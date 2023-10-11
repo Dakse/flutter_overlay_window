@@ -64,6 +64,7 @@ public class FlutterOverlayWindowPlugin implements
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
                 intent.setData(Uri.parse("package:" + mActivity.getPackageName()));
+                mActivity.setShowWhenLocked(true);
                 mActivity.startActivityForResult(intent, REQUEST_CODE_FOR_OVERLAY_PERMISSION);
             } else {
                 result.success(true);
